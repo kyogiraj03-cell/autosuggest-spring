@@ -1,4 +1,22 @@
+body{
+  margin: 0px;
+}
+
+
+
 h1{
   color: rgb(84, 244, 230);
 
+}
+.navbar{
+  border-style: solid;
+   border-width: 1px;
+   border-color: rgb(18, 174, 174);
+   padding: 20px;
+   text-align: center ;
+}
+.navbar a{
+  padding: 20px;
+  text-decoration: none;
+  color:black;
 }
