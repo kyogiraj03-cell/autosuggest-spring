@@ -1,14 +1,14 @@
 var users=[
 {
-  "name":"Ayanokoji Kiyotaka",
-  "gender": "Sigma male",
-  "image":"ayanokoji.png"
+  "name":"John Doe",
+  "gender": "Male",
+  "image":"john.png"
 
 },
 {
-  "name":"Makima",
-  "gender":"Sigma Female",
-  "image":"image.png"
+  "name":"Jane Doe",
+  "gender":"Female",
+  "image":"jane.png"
 },
 ]
 
@@ -23,3 +23,26 @@ function toggleuser() {
     var userGender = document.getElementById("user-gender");
      userGender.innerHTML = users[id].gender;
 }
+function RandomUser() {
+    fetch("https://randomuser.me/api/")
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Failed to fetch user");
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            var user = data.results[0];
+
+            document.getElementById("user-image").src = user.picture.large;
+            document.getElementById("user-name").textContent =
+                user.name.first + " " + user.name.last;
+            document.getElementById("user-gender").textContent = user.gender;
+        })
+        .catch(function (error) {
+            console.error("Error:", error);
+        });
+}
+
+
+
